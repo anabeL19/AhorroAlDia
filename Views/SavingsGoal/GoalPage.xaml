@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartSave.Views.SavingsGoal.GoalPage"
+             xmlns:vm="clr-namespace:SmartSave.ViewModels.Base"
+             vm:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:controls="clr-namespace:SmartSave.Controls">
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.ColumnSpan="1" HorizontalTextAlignment="End" Text="AhorroAlDía" Style="{StaticResource navTitle}"/>
+        </Grid>
+    </Shell.TitleView>
+    <Grid BackgroundColor="{StaticResource White}" Margin="10,20,10,20" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <VerticalStackLayout VerticalOptions="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Frame Grid.Row="0" IsClippedToBounds="True"  CornerRadius="15" Margin="4" Padding="0" 
+                   BackgroundColor="{StaticResource White}" HeightRequest="50" >
+                <controls:CustomEntry Grid.Row="1" Placeholder="Ingresa el nombre de tu meta de ahorro"
+                    PlaceholderColor="{StaticResource Gray400}"
+                    TextColor="{StaticResource Primary}"
+                    FontSize="16"/>
+            </Frame>
+
+            <StackLayout Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"
+                            Text="Tengo una meta de ahorro"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+                    <Switch Grid.Column="1" IsToggled="True"/>
+                    <!--<Switch Grid.Column="1" IsToggled="True" Toggled="OnToggled"/>-->
+
+                </Grid>
+
+                <Frame CornerRadius="15" Margin="4" Padding="0" BackgroundColor="{StaticResource White}" HeightRequest="50">
+                    <controls:CustomEntry Grid.Row="1" Placeholder="Ingresa la meta de ahorro"
+                        PlaceholderColor="{StaticResource Gray400}"
+                        TextColor="{StaticResource Primary}"
+                        FontSize="16" VerticalTextAlignment="Center"/>
+                </Frame>
+            </StackLayout>
+            
+        </VerticalStackLayout>
+        
+        <Frame Grid.Row="2" CornerRadius="15" HasShadow="False" Padding="0" Margin="10,20,10,20">
+            <Button Grid.Row="2" Text="Continuar" CornerRadius="10" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource White}"
+            Command="{Binding GoToSavingsAccountCommand}"></Button>
+        </Frame>
+    </Grid>
+</ContentPage>

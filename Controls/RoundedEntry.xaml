@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SmartSave.Controls"
+             x:Class="SmartSave.Controls.RoundedEntry"
+             x:Name="rootElement">
+    <ContentView.Content>
+        <Frame IsClippedToBounds="True" CornerRadius="15" Margin="4" Padding="0" HasShadow="False" 
+           BackgroundColor="{Binding BackgroundColorInput}" HeightRequest="50" BorderColor="Transparent" BindingContext="{Reference rootElement}">
+            <Grid>
+                <controls:CustomEntry x:Name="passwordEntry"  HorizontalTextAlignment="{Binding HorizontalTextAlignment}" 
+                   Placeholder="{Binding Placeholder}" PlaceholderColor="{Binding PlaceholderColor }" 
+                   IsPassword="{Binding IsPassword}" FontSize="{Binding FontSize}" TextColor="{Binding TextColor }" 
+                   Text="{Binding Text}" HeightRequest="50" IsTextPredictionEnabled="False" CursorColor="{Binding CursorColor}"
+                                  BackgroundColor="{Binding BackgroundColorInput}">
+                </controls:CustomEntry>
+                <Image HeightRequest="30" WidthRequest="30" BackgroundColor="Transparent" 
+                VerticalOptions="Center" HorizontalOptions="End" Source="username.png" Aspect="Fill" 
+                IsVisible="{Binding IsUserName}" Margin="{OnPlatform Android=10, iOS=4}">
+                </Image>
+                <ImageButton HeightRequest="30" WidthRequest="30" BackgroundColor="Transparent" 
+                         VerticalOptions="Center" HorizontalOptions="End" Source="view.png" Aspect="Fill" 
+                         Clicked="ImageButton_Clicked" IsVisible="{Binding IsPassword}" Margin="{OnPlatform Android=10, iOS=4}">
+                </ImageButton>
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

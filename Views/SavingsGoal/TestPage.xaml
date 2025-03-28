@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartSave.Views.SavingsGoal.TestPage"
+             xmlns:vm="clr-namespace:SmartSave.ViewModels.Base"
+             vm:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:behaviors="clr-namespace:SmartSave.Behaviors"
+             Title="Test">
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Text="AhorroAlDía" Style="{StaticResource navTitle}"/>
+        </Grid>
+    </Shell.TitleView>
+    <Grid BackgroundColor="{StaticResource White}" Margin="10,20,10,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout>
+            <Label Grid.Row="0" Text="¿Cuánto quieres ahorrar?"
+                VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+            <Label Grid.Row="1" Text="Selecciona la cuenta donde debitaremos el dinero para tu ahorro"
+               VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+
+            <!-- Picker to select the savings account -->
+            <Frame Grid.Row="2" Margin="20,10,20,10"  CornerRadius="20" Padding="0" BackgroundColor="White"  HasShadow="True" BorderColor="Gray">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Picker x:Name="picker" Margin="{OnPlatform Android='20,8,20,8', iOS='20,5'}" ItemsSource="{Binding FormulaCategoryItems}" 
+                        ItemDisplayBinding="{Binding FormulaClassificationName }" 
+                        TextColor="{StaticResource secondary_text}" 
+                        TitleColor="{StaticResource secondary_text}" 
+                        BackgroundColor="White" Title="Selecciona la cuenta de ahorro">
+                        <Picker.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                        EventName="SelectedIndexChanged"
+                        Command="{Binding SelectedCategoryIndexCommand}"
+                        CommandParameter="{Binding Source={x:Reference picker},Path=SelectedItem}" />
+                        </Picker.Behaviors>
+                    </Picker>
+                    <Label Grid.Column="1" Text="s/ 50"
+                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                </Grid>
+            </Frame>
+        </VerticalStackLayout>
+        <Frame Grid.Row="3" CornerRadius="15" HasShadow="False" Padding="0" Margin="10,20,10,20">
+            <Button Grid.Row="2" Text="Continuar" CornerRadius="10" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource White}"
+        Command="{Binding GoToTodayEarningsCommand}"></Button>
+        </Frame>
+    </Grid>
+
+</ContentPage>

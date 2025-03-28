@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartSave.Views.SavingsGoal.InfoTransactionPage"
+             xmlns:vm="clr-namespace:SmartSave.ViewModels.Base"
+             vm:ViewModelLocator.AutoWireViewModel="True">
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Text="AhorroAlDía" Style="{StaticResource navTitle}"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <Grid VerticalOptions="Start">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="{StaticResource PrimaryDark}" HeightRequest="60">
+            <Label Text="Ingresos" HorizontalTextAlignment="Center" TextColor="{StaticResource White}"></Label>
+        </Frame>
+        <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="{StaticResource PrimaryDark}" HeightRequest="60">
+            <Label Text="Egresos" HorizontalTextAlignment="Center" TextColor="{StaticResource White}"></Label>
+        </Frame>
+        <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="{StaticResource White}" HeightRequest="60" BorderColor="Transparent">
+            <Label Text="+100" HorizontalTextAlignment="Center" TextColor="{StaticResource Income}"></Label>
+        </Frame>
+        <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="{StaticResource White}" HeightRequest="60" BorderColor="Transparent">
+            <Label Text="-50" HorizontalTextAlignment="Center" TextColor="{StaticResource Expenses}"></Label>
+        </Frame>
+
+        <Frame Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="{StaticResource Primary}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Ganancia del día" HorizontalTextAlignment="Center" TextColor="{StaticResource White}"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Text="10 de marzo" HorizontalTextAlignment="Center" TextColor="{StaticResource White}" FontSize="12"></Label>
+
+                <Frame Grid.RowSpan="2" Grid.Column="1" BackgroundColor="{StaticResource White}" VerticalOptions="Center" HeightRequest="60">
+                    <Label Grid.RowSpan="2" Grid.Column="1" Text="s/50" HorizontalTextAlignment="Center"
+                           TextColor="{StaticResource Primary}"></Label>
+                </Frame>
+            </Grid>
+        </Frame>
+
+        <Label Grid.Row="3" Grid.ColumnSpan="2" Text="¡Ahorraste s/ 15 hoy!" HorizontalTextAlignment="Center" TextColor="{StaticResource Black}" FontSize="20"></Label>
+        <Label Grid.Row="4" Grid.ColumnSpan="2" Text="¡Ahorraste s/ 15 hoy!" HorizontalTextAlignment="Center" FontSize ="10" TextColor="{StaticResource Primary}"></Label>
+
+        <Frame Grid.Row="5" Grid.ColumnSpan="2">
+            <Image Grid.Row="5" Grid.ColumnSpan="2" Source="porky.jpeg" Aspect="AspectFit" WidthRequest="200" HeightRequest="200" />
+        </Frame>
+
+        <Label Grid.Row="6" Grid.ColumnSpan="2" Text="Para mi laptop" HorizontalTextAlignment="Center" TextColor="{StaticResource Black}"></Label>
+        <Label Grid.Row="7" Grid.ColumnSpan="2" Text="s/ 4500000" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}"></Label>
+
+        <ImageButton Grid.Row="8" Grid.Column="1" Source="increase.png"
+             WidthRequest="100"
+             HeightRequest="100"
+             Aspect="AspectFit"
+             Scale="0.2"
+             BackgroundColor="Transparent"
+             Command="{Binding GoToGraphTransactionCommand}"></ImageButton>
+    </Grid>
+</ContentPage>

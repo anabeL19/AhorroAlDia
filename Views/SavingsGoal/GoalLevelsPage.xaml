@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartSave.Views.SavingsGoal.GoalLevelsPage"
+             xmlns:vm="clr-namespace:SmartSave.ViewModels.Base"
+             vm:ViewModelLocator.AutoWireViewModel="True">
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Text="AhorrAlDía" Style="{StaticResource navTitle}"/>
+        </Grid>
+    </Shell.TitleView>
+    <Grid BackgroundColor="{StaticResource Primary}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0" Source="trophy.png" Aspect="AspectFit" HeightRequest="100"/>
+        <Label Grid.Row="1" Text="¡Cumple tu primera &#x0a; meta de ahorro y activa &#x0a; nuevas metas!" HorizontalTextAlignment="Center" FontSize ="25" TextColor="{StaticResource White}"></Label>
+        <VerticalStackLayout Grid.Row="2" Margin="20,50,20,100" Padding="20" VerticalOptions="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Frame Grid.Row="0" BackgroundColor="{StaticResource PrimaryDark}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToGoalCommand}" />
+                </Frame.GestureRecognizers>
+                <Label Text="NIVEL 1&#x0a;Una meta de ahorro" HorizontalTextAlignment="Center" TextColor="{StaticResource White}"></Label>
+            </Frame>
+            <Frame Grid.Row="1" BackgroundColor="{StaticResource PrimaryDark}">
+                <Label Text="NIVEL 2&#x0a;Tres metas de ahorro" HorizontalTextAlignment="Center" TextColor="{StaticResource White}"></Label>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToGoalCommand}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Grid.Row="2" BackgroundColor="{StaticResource PrimaryDark}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToGoalCommand}" />
+                </Frame.GestureRecognizers>
+                <Label Text="NIVEL 3&#x0a;Cinco metas de ahorro" HorizontalTextAlignment="Center" TextColor="{StaticResource White}"></Label>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartSave.Views.SavingsGoal.LevelGoalPage"
+             xmlns:vm="clr-namespace:SmartSave.ViewModels.Base"
+             vm:ViewModelLocator.AutoWireViewModel="True">
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.ColumnSpan="1" HorizontalTextAlignment="End" Text="AhorroAlDía" Style="{StaticResource navTitle}"/>
+        </Grid>
+    </Shell.TitleView>
+    <Grid BackgroundColor="{StaticResource White}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Text = "Bienvenida, Mariela" HorizontalOptions="Center" VerticalOptions="Center" FontSize ="20" TextColor="{StaticResource Primary}"/>
+        <VerticalStackLayout Grid.Row="1" Background="{StaticResource Primary}" Padding="50" Margin="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--<Frame Grid.Row="0" HasShadow="False" Padding="10" Margin="10" BackgroundColor="{StaticResource Primary}">
+                <Image Grid.Row="0" Aspect="AspectFill"/>
+            </Frame>-->
+                <Image Grid.Row="0" Aspect="AspectFill" HeightRequest="200"/>
+
+                <Label Text = "Ahorrar sin esfuerzo" Grid.Row="1" Style="{StaticResource navOption}"/>
+                <Label Text = "+" Grid.Row="2"  Style="{StaticResource navOption}" TextColor="{StaticResource Secondary}"/>
+                <Label Text = "Ahorro constante" Grid.Row="3"  Style="{StaticResource navOption}"/>
+                <Label Text = "+" Grid.Row="4"  Style="{StaticResource navOption}" TextColor="{StaticResource Secondary}"/>
+                <Label Text = "Ahorro flexible"  Grid.Row="5"  Style="{StaticResource navOption}"/>
+            </Grid>
+        </VerticalStackLayout>
+
+
+        <!--<BoxView Grid.Row="7" Grid.ColumnSpan="1" BackgroundColor="White" HorizontalOptions="End"/>
+
+<Button Grid.Row="7" Text="Continuar" CornerRadius="10"></Button>-->
+        <Frame Grid.Row="2" CornerRadius="15" HasShadow="False" Padding="0" Margin="10,20,10,20">
+            <Button Grid.Row="2" Text="Continuar" CornerRadius="10" BackgroundColor="{StaticResource Secondary}" TextColor="{StaticResource Primary}"
+                Command="{Binding GoToGoalCommand}"></Button>
+        </Frame>
+    </Grid>
+
+</ContentPage>
